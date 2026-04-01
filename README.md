@@ -1,39 +1,41 @@
-# VLibras local plugin for Moodle
+# VLibras for Moodle
 
-`local_vlibras` enables administrators to turn the official VLibras accessibility widget on or off for the whole Moodle site.
+`local_vlibras` adds an administrator setting to enable or disable the official VLibras widget across the whole Moodle site.
 
-## Features
+The plugin provides the same practical result as manually adding the VLibras snippet to `additionalhtmlfooter`, but keeps the configuration inside the plugin and uses Moodle core hooks to inject the widget in the page footer.
 
-- Adds a single site-wide admin setting to enable or disable the VLibras widget.
-- Injects the official VLibras widget snippet into the page footer using Moodle core hooks.
-- Avoids editing the `additionalhtmlfooter` setting manually.
+## Compatibility
 
-## Requirements
+- Moodle 4.5 or later
+- Tested in CI with Moodle 4.5, 5.0 and 5.1
+- Internet access to load the official VLibras script from `https://vlibras.gov.br/app/vlibras-plugin.js`
 
-- Moodle 4.5 or later within the supported 4.5 branch.
-- Internet access to load the public VLibras JavaScript asset from `https://vlibras.gov.br/app/vlibras-plugin.js`.
+## What the plugin does
+
+- Adds one site-level setting to enable or disable VLibras
+- Injects the official VLibras widget markup in pages that render a footer
+- Avoids manual changes to the Moodle `additionalhtmlfooter` setting
 
 ## Installation
 
-1. Copy the plugin into `local/vlibras`.
-2. Visit `Site administration > Notifications` to complete the installation.
-3. Go to `Site administration > Plugins > Local plugins > VLibras`.
-4. Enable the `Enable VLibras widget` setting.
+1. Place the plugin in `local/vlibras`.
+2. Log in as an administrator.
+3. Open `Site administration > Notifications` to complete installation.
 
-## Behaviour
+## Configuration
 
-When enabled, the plugin injects the official VLibras widget markup on every Moodle page that renders a footer. This matches the typical manual setup performed through `additionalhtmlfooter`, but keeps the configuration isolated inside the plugin.
+1. Go to `Site administration > Plugins > Local plugins > VLibras`.
+2. Enable `Enable VLibras widget`.
+
+Once enabled, the widget is loaded site-wide on pages that render the Moodle footer.
+
+## External service
+
+This plugin depends on the public VLibras service maintained outside Moodle. When the setting is enabled, Moodle loads the VLibras JavaScript widget from the official public endpoint.
+
+Official VLibras installation reference:
+- [VLibras widget integration guide](https://vlibras.gov.br/doc/widget/installation/webpageintegration.html)
 
 ## Privacy
 
-The plugin does not store personal data in Moodle. When enabled, it loads the public VLibras widget from an external service and page content is processed by that service so the accessibility translation can be rendered.
-
-## Development checks
-
-Run the recommended checks from the Moodle root:
-
-```bash
-php vendor/bin/phpunit --testsuite local_vlibras_testsuite
-~/Sites/moodle-plugin-ci/bin/moodle-plugin-ci phpcs /Users/thiagoserrao/Sites/moodle45/local/vlibras
-~/Sites/moodle-plugin-ci/bin/moodle-plugin-ci phpmd -m /Users/thiagoserrao/Sites/moodle45 /Users/thiagoserrao/Sites/moodle45/local/vlibras
-```
+The plugin does not store personal data in Moodle. When enabled, page content may be processed by the external VLibras service so that the accessibility translation can be rendered.
