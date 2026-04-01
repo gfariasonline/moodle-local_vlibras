@@ -1,0 +1,11 @@
+# Local development-only files
+AGENTS.md
+CLAUDE.md
+.agents/
+.claude/
+.codex/
+.codex-tmp/
+.gemini/
+memory.md
+docs/superpowers/
+SUBMISSION_CHECKLIST.md
