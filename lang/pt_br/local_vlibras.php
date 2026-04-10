@@ -24,8 +24,24 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['avatar']           = 'Avatar do VLibras';
+$string['avatar_desc']      = 'Escolhe o avatar inicial exibido pelo widget VLibras.';
+$string['avatar_guga']      = 'Guga';
+$string['avatar_hosana']    = 'Hosana';
+$string['avatar_icaro']     = 'Ícaro';
+$string['avatar_random']    = 'Aleatório';
 $string['enabled']          = 'Habilitar widget VLibras';
 $string['enabled_desc']     = 'Quando habilitado, o widget VLibras de Língua Brasileira de Sinais será exibido em todas as páginas do site.';
 $string['pluginname']       = 'VLibras';
+$string['position']         = 'Posição do balão do VLibras';
+$string['position_b']       = 'Inferior';
+$string['position_bl']      = 'Inferior esquerda';
+$string['position_br']      = 'Inferior direita';
+$string['position_desc']    = 'Define a posição inicial do widget VLibras na página.';
+$string['position_left']    = 'Esquerda';
+$string['position_right']   = 'Direita';
+$string['position_t']       = 'Superior';
+$string['position_tl']      = 'Superior esquerda';
+$string['position_tr']      = 'Superior direita';
 $string['privacy:metadata:vlibras'] = 'O plugin local_vlibras envia conteúdo da página e dados de contexto da página para o serviço externo VLibras para que o widget de acessibilidade possa renderizar traduções em Libras.';
 $string['privacy:metadata:vlibras:data'] = 'Conteúdo da página e dados de contexto da página necessários para renderizar as traduções do VLibras.';

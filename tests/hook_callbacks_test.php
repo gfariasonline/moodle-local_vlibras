@@ -58,6 +58,8 @@ final class hook_callbacks_test extends \advanced_testcase {
     public function test_enabled_adds_vlibras_html(): void {
         $this->resetAfterTest();
         set_config('enabled', 1, 'local_vlibras');
+        set_config('position', 'R', 'local_vlibras');
+        set_config('avatar', 'icaro', 'local_vlibras');
 
         $hook = $this->make_hook();
         hook_callbacks::before_footer_html_generation($hook);
@@ -69,7 +71,26 @@ final class hook_callbacks_test extends \advanced_testcase {
         $this->assertStringContainsString('VLibras.Widget', $output);
         $this->assertStringContainsString('vw-plugin-wrapper', $output);
         $this->assertStringContainsString('https://vlibras.gov.br/app/vlibras-plugin.js', $output);
-        $this->assertStringContainsString('new window.VLibras.Widget(\'https://vlibras.gov.br/app\');', $output);
+        $this->assertStringContainsString('rootPath: "https://vlibras.gov.br/app"', $output);
+        $this->assertStringContainsString('position: "R"', $output);
+        $this->assertStringContainsString('avatar: "icaro"', $output);
+    }
+
+    /**
+     * Configured widget options are injected into the footer output.
+     */
+    public function test_enabled_uses_configured_widget_options(): void {
+        $this->resetAfterTest();
+        set_config('enabled', 1, 'local_vlibras');
+        set_config('position', 'TL', 'local_vlibras');
+        set_config('avatar', 'random', 'local_vlibras');
+
+        $hook = $this->make_hook();
+        hook_callbacks::before_footer_html_generation($hook);
+
+        $output = $hook->get_output();
+        $this->assertStringContainsString('position: "TL"', $output);
+        $this->assertStringContainsString('avatar: "random"', $output);
     }
 
     /**

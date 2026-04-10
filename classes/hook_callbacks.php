@@ -40,6 +40,24 @@ class hook_callbacks {
             return;
         }
 
+        $position = get_config('local_vlibras', 'position') ?: 'R';
+        $avatar = get_config('local_vlibras', 'avatar') ?: 'icaro';
+        $allowedpositions = ['TL', 'T', 'TR', 'R', 'BR', 'B', 'BL', 'L'];
+        $allowedavatars = ['icaro', 'hosana', 'guga', 'random'];
+
+        if (!in_array($position, $allowedpositions, true)) {
+            $position = 'R';
+        }
+
+        if (!in_array($avatar, $allowedavatars, true)) {
+            $avatar = 'icaro';
+        }
+
+        $rootpath = 'https://vlibras.gov.br/app';
+        $rootpathjson = json_encode($rootpath, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $positionjson = json_encode($position, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $avatarjson = json_encode($avatar, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
         $html  = '<div vw class="enabled">' . "\n";
         $html .= '    <div vw-access-button class="active"></div>' . "\n";
         $html .= '    <div vw-plugin-wrapper>' . "\n";
@@ -47,7 +65,11 @@ class hook_callbacks {
         $html .= '    </div>' . "\n";
         $html .= '</div>' . "\n";
         $html .= '<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>' . "\n";
-        $html .= '<script>new window.VLibras.Widget(\'https://vlibras.gov.br/app\');</script>' . "\n";
+        $html .= '<script>new window.VLibras.Widget({' . "\n";
+        $html .= '    rootPath: ' . $rootpathjson . ',' . "\n";
+        $html .= '    position: ' . $positionjson . ',' . "\n";
+        $html .= '    avatar: ' . $avatarjson . "\n";
+        $html .= '});</script>' . "\n";
 
         $hook->add_html($html);
     }

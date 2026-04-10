@@ -37,5 +37,35 @@ if ($hassiteconfig) {
         0
     ));
 
+    $settings->add(new admin_setting_configselect(
+        'local_vlibras/position',
+        get_string('position', 'local_vlibras'),
+        get_string('position_desc', 'local_vlibras'),
+        'R',
+        [
+            'TL' => get_string('position_tl', 'local_vlibras'),
+            'T' => get_string('position_t', 'local_vlibras'),
+            'TR' => get_string('position_tr', 'local_vlibras'),
+            'R' => get_string('position_right', 'local_vlibras'),
+            'BR' => get_string('position_br', 'local_vlibras'),
+            'B' => get_string('position_b', 'local_vlibras'),
+            'BL' => get_string('position_bl', 'local_vlibras'),
+            'L' => get_string('position_left', 'local_vlibras'),
+        ]
+    ));
+
+    $settings->add(new admin_setting_configselect(
+        'local_vlibras/avatar',
+        get_string('avatar', 'local_vlibras'),
+        get_string('avatar_desc', 'local_vlibras'),
+        'icaro',
+        [
+            'icaro' => get_string('avatar_icaro', 'local_vlibras'),
+            'hosana' => get_string('avatar_hosana', 'local_vlibras'),
+            'guga' => get_string('avatar_guga', 'local_vlibras'),
+            'random' => get_string('avatar_random', 'local_vlibras'),
+        ]
+    ));
+
     $ADMIN->add('localplugins', $settings);
 }

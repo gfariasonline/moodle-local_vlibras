@@ -1,6 +1,6 @@
 # VLibras for Moodle
 
-`local_vlibras` adds an administrator setting to enable or disable the official VLibras widget across the whole Moodle site.
+`local_vlibras` adds administrator settings to enable or disable the official VLibras widget across the whole Moodle site, and to choose the initial widget position and avatar.
 
 The plugin provides the same practical result as manually adding the VLibras snippet to `additionalhtmlfooter`, but keeps the configuration inside the plugin and uses Moodle core hooks to inject the widget in the page footer.
 
@@ -12,7 +12,9 @@ The plugin provides the same practical result as manually adding the VLibras sni
 
 ## What the plugin does
 
-- Adds one site-level setting to enable or disable VLibras
+- Adds site-level settings to enable or disable VLibras
+- Lets administrators choose the initial widget position
+- Lets administrators choose the initial widget avatar
 - Injects the official VLibras widget markup in pages that render a footer
 - Avoids manual changes to the Moodle `additionalhtmlfooter` setting
 
@@ -26,8 +28,10 @@ The plugin provides the same practical result as manually adding the VLibras sni
 
 1. Go to `Site administration > Plugins > Local plugins > VLibras`.
 2. Enable `Enable VLibras widget`.
+3. Choose the initial widget position: `Top left`, `Top`, `Top right`, `Right`, `Bottom right`, `Bottom`, `Bottom left`, or `Left`.
+4. Choose the initial avatar: `Icaro`, `Hosana`, `Guga`, or `Random`.
 
-Once enabled, the widget is loaded site-wide on pages that render the Moodle footer.
+Once enabled, the widget is loaded site-wide on pages that render the Moodle footer using the configured position and avatar.
 
 ## External service
 
