@@ -2,7 +2,7 @@
 
 All notable changes to this plugin will be documented in this file.
 
-## Unreleased
+## 1.1.0
 
 - Added administrator settings to choose the VLibras widget position and avatar.
 - Expanded the position setting to support all official VLibras placement options.
