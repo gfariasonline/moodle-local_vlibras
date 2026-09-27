@@ -5,6 +5,7 @@ CLAUDE.md
 .claude/
 .codex/
 .codex-tmp/
+.codegraph/
 .gemini/
 memory.md
 docs/superpowers/
