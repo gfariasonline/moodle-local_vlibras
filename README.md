@@ -7,7 +7,7 @@ The plugin provides the same practical result as manually adding the VLibras sni
 ## Compatibility
 
 - Moodle 4.5 or later
-- Tested in CI with Moodle 4.5, 5.0 and 5.1
+- Tested in CI with Moodle 4.5, 5.0, 5.1, 5.2 and 5.3 (beta)
 - Internet access to load the official VLibras script from `https://vlibras.gov.br/app/vlibras-plugin.js`
 
 ## What the plugin does

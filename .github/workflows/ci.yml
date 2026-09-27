@@ -64,6 +64,20 @@ jobs:
             db-pass: root
             db-name: moodle
             extensions: 'zip, gd, mbstring, pgsql'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_502_STABLE'
+            database: mariadb
+            db-user: root
+            db-pass: ''
+            db-name: moodle
+            extensions: 'zip, gd, mbstring, mysqli'
+          - php: '8.4'
+            moodle-branch: 'main' # Moodle 5.3 beta; switch to MOODLE_503_STABLE once it is released.
+            database: pgsql
+            db-user: root
+            db-pass: root
+            db-name: moodle
+            extensions: 'zip, gd, mbstring, pgsql'
 
     steps:
       - name: Check out repository code
