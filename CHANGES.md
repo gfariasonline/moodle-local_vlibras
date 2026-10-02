@@ -2,6 +2,13 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## 1.1.1
+
+- Fixed the position setting to offer only Left and Right, as supported by the current official widget.
+- Migrated legacy Top left and Bottom left settings to Left, and other unsupported positions to Right.
+- Restricted widget initialisation to supported positions and added regression tests.
+- Updated the language strings and documentation to clarify that the button is centred vertically.
+
 ## 1.1.0
 
 - Added administrator settings to choose the VLibras widget position and avatar.

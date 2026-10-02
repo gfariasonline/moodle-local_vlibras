@@ -15,17 +15,29 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version information.
+ * Upgrade steps for local_vlibras.
  *
  * @package    local_vlibras
  * @copyright  2026 Thiago Serrao
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+/**
+ * Migrate legacy positions to the sides supported by the official widget.
+ *
+ * @param int $oldversion Previously installed plugin version.
+ * @return bool
+ */
+function xmldb_local_vlibras_upgrade($oldversion) {
+    if ($oldversion < 2026100200) {
+        $position = get_config('local_vlibras', 'position');
+        if ($position !== false && !in_array($position, ['L', 'R'], true)) {
+            $position = in_array($position, ['TL', 'BL'], true) ? 'L' : 'R';
+            set_config('position', $position, 'local_vlibras');
+        }
 
-$plugin->component = 'local_vlibras';
-$plugin->version   = 2026100200;
-$plugin->requires  = 2024100700; // Moodle 4.5.
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.1.1';
+        upgrade_plugin_savepoint(true, 2026100200, 'local', 'vlibras');
+    }
+
+    return true;
+}

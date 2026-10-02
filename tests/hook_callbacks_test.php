@@ -82,15 +82,30 @@ final class hook_callbacks_test extends \advanced_testcase {
     public function test_enabled_uses_configured_widget_options(): void {
         $this->resetAfterTest();
         set_config('enabled', 1, 'local_vlibras');
-        set_config('position', 'TL', 'local_vlibras');
+        set_config('position', 'L', 'local_vlibras');
         set_config('avatar', 'random', 'local_vlibras');
 
         $hook = $this->make_hook();
         hook_callbacks::before_footer_html_generation($hook);
 
         $output = $hook->get_output();
-        $this->assertStringContainsString('position: "TL"', $output);
+        $this->assertStringContainsString('position: "L"', $output);
         $this->assertStringContainsString('avatar: "random"', $output);
+    }
+
+    /**
+     * Unsupported positions fall back to the official default.
+     */
+    public function test_unsupported_positions_use_right(): void {
+        $this->resetAfterTest();
+        set_config('enabled', 1, 'local_vlibras');
+
+        foreach (['TL', 'T', 'TR', 'BR', 'B', 'BL', 'invalid'] as $position) {
+            set_config('position', $position, 'local_vlibras');
+            $hook = $this->make_hook();
+            hook_callbacks::before_footer_html_generation($hook);
+            $this->assertStringContainsString('position: "R"', $hook->get_output(), $position);
+        }
     }
 
     /**

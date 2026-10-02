@@ -28,10 +28,12 @@ The plugin provides the same practical result as manually adding the VLibras sni
 
 1. Go to `Site administration > Plugins > Local plugins > VLibras`.
 2. Enable `Enable VLibras widget`.
-3. Choose the initial widget position: `Top left`, `Top`, `Top right`, `Right`, `Bottom right`, `Bottom`, `Bottom left`, or `Left`.
+3. Choose the initial widget position: `Right` or `Left`. The official widget centres the button vertically.
 4. Choose the initial avatar: `Icaro`, `Hosana`, `Guga`, or `Random`.
 
 Once enabled, the widget is loaded site-wide on pages that render the Moodle footer using the configured position and avatar.
+
+When upgrading from 1.1.0, `Top left` and `Bottom left` are converted to `Left`; other unsupported positions are converted to `Right`. Existing `Left` and `Right` settings are preserved.
 
 ## External service
 

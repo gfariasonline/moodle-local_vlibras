@@ -42,7 +42,7 @@ class hook_callbacks {
 
         $position = get_config('local_vlibras', 'position') ?: 'R';
         $avatar = get_config('local_vlibras', 'avatar') ?: 'icaro';
-        $allowedpositions = ['TL', 'T', 'TR', 'R', 'BR', 'B', 'BL', 'L'];
+        $allowedpositions = ['R', 'L'];
         $allowedavatars = ['icaro', 'hosana', 'guga', 'random'];
 
         if (!in_array($position, $allowedpositions, true)) {

@@ -43,13 +43,7 @@ if ($hassiteconfig) {
         get_string('position_desc', 'local_vlibras'),
         'R',
         [
-            'TL' => get_string('position_tl', 'local_vlibras'),
-            'T' => get_string('position_t', 'local_vlibras'),
-            'TR' => get_string('position_tr', 'local_vlibras'),
             'R' => get_string('position_right', 'local_vlibras'),
-            'BR' => get_string('position_br', 'local_vlibras'),
-            'B' => get_string('position_b', 'local_vlibras'),
-            'BL' => get_string('position_bl', 'local_vlibras'),
             'L' => get_string('position_left', 'local_vlibras'),
         ]
     ));
