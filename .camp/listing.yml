@@ -1,0 +1,26 @@
+# camp listing manifest — descriptive content for your plugin's page.
+# Edit freely and commit; camp ingests this file at each tagged release.
+# Schema: https://camp-registry.org/schema/listing.schema.json
+name: VLibras for Moodle
+summary: Enable the official VLibras Brazilian Sign Language (Libras) widget site-wide in Moodle, with configurable position and avatar.
+description: |
+  VLibras for Moodle adds administrator settings to enable or disable the
+  official VLibras widget across the whole site, and to choose the initial
+  widget position and avatar.
+
+  It gives the same result as pasting the VLibras snippet into
+  `additionalhtmlfooter`, but keeps the configuration inside the plugin and
+  uses Moodle core hooks to inject the widget into the page footer.
+
+  - Site-wide enable/disable switch
+  - Initial widget position (left or right)
+  - Initial avatar (Icaro, Hosana, Guga or random)
+  - No manual changes to `additionalhtmlfooter`
+
+  The widget script is loaded from the public VLibras service
+  (`https://vlibras.gov.br/app/vlibras-plugin.js`); no account is required.
+labels:
+  - fully-free
+links:
+  docs: https://github.com/gfariasonline/moodle-local_vlibras#readme
+  issues: https://github.com/gfariasonline/moodle-local_vlibras/issues
