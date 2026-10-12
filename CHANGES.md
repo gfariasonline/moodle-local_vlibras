@@ -2,6 +2,11 @@
 
 All notable changes to this plugin will be documented in this file.
 
+## 1.1.2
+
+- Added the CAMP listing manifest (`.camp/listing.yml`) and release workflow.
+- Excluded development files from distribution archives via `.gitattributes`.
+
 ## 1.1.1
 
 - Fixed the position setting to offer only Left and Right, as supported by the current official widget.

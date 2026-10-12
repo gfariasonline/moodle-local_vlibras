@@ -1,0 +1,9 @@
+# Keep development files out of camp distribution ZIPs (git archive semantics)
+.github export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.camp export-ignore
+tests export-ignore
+node_modules export-ignore
+AGENTS.md export-ignore
+SUBMISSION_CHECKLIST.md export-ignore
